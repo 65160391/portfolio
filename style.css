@@ -506,7 +506,7 @@ html {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* แสดงผลงาน 2 งานคู่กัน */
     gap: 4rem;
 }
 
