@@ -1,5 +1,5 @@
 /* นำเข้าฟอนต์ Inter จาก Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('[https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap)');
 
 * {
     margin: 0;
@@ -8,13 +8,13 @@
 }
 
 :root {
-    --primary-bg: #0a0a0a;
-    --secondary-bg: #111111;
-    --accent-color: #d9534f;
+    --primary-bg: #0b0f17;
+    --secondary-bg: #151c27;
+    --accent-color: #4285f4;
     --text-primary: #ffffff;
-    --text-secondary: #a0a0a0;
-    --text-muted: #666666;
-    --border-color: #333333;
+    --text-secondary: #aab8c2;
+    --text-muted: #647587;
+    --border-color: #2b3543;
 }
 
 body {
@@ -71,7 +71,7 @@ html {
 
 .loading-progress {
     height: 100%;
-    background: linear-gradient(90deg, var(--accent-color), #e57373);
+    background: linear-gradient(90deg, var(--accent-color), #639aff);
     border-radius: 2px;
     width: 0%;
     transition: width 0.1s ease;
@@ -108,7 +108,7 @@ html {
     top: 0;
     width: 100%;
     padding: 2rem 0;
-    background: rgba(10, 10, 10, 0.9);
+    background: rgba(11, 15, 23, 0.9);
     backdrop-filter: blur(10px);
     z-index: 1000;
     transition: all 0.3s ease;
@@ -116,7 +116,7 @@ html {
 
 .navbar.scrolled {
     padding: 1rem 0;
-    background: rgba(10, 10, 10, 0.95);
+    background: rgba(11, 15, 23, 0.95);
 }
 
 .nav-container {
@@ -164,7 +164,7 @@ html {
     align-items: center;
     justify-content: center;
     position: relative;
-    background: radial-gradient(ellipse at center, rgba(217, 83, 79, 0.1) 0%, transparent 50%);
+    background: radial-gradient(ellipse at center, rgba(66, 133, 244, 0.1) 0%, transparent 50%);
 }
 
 .hero-content {
@@ -394,7 +394,7 @@ html {
 .profile-photo {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* ทำให้รูปภาพเต็มกรอบโดยไม่ผิดสัดส่วน */
+    object-fit: cover;
     border-radius: 20px;
 }
 
@@ -402,7 +402,7 @@ html {
     width: 100%;
     max-width: 400px;
     height: 500px;
-    background: linear-gradient(135deg, var(--accent-color), #e57373);
+    background: linear-gradient(135deg, var(--accent-color), #639aff);
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -420,7 +420,7 @@ html {
     left: 20px;
     right: -20px;
     bottom: -20px;
-    background: rgba(217, 83, 79, 0.2);
+    background: rgba(66, 133, 244, 0.2);
     border-radius: 20px;
     z-index: -1;
 }
@@ -467,7 +467,7 @@ html {
 .skill-icon img {
     width: 60%;
     height: 60%;
-    object-fit: contain; /* ทำให้รูปภาพพอดีกับกรอบโดยไม่ผิดสัดส่วน */
+    object-fit: contain;
 }
 
 .skill-title {
@@ -506,8 +506,59 @@ html {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* แสดงผลงาน 2 งานคู่กัน */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 4rem;
+}
+
+/* ทำให้ project-info มีการจัดเรียงแบบ Flexbox */
+.project-info {
+    padding: 2rem 3rem;
+    display: flex; /* เปลี่ยนจาก block เป็น flex */
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* เพิ่ม position: relative เพื่อให้อ้างอิงการจัดตำแหน่งของปุ่มได้ */
+}
+
+/* เพิ่มสไตล์สำหรับปุ่มเปิดผลงาน */
+.project-view-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.75rem 1.5rem;
+    background: var(--border-color);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 50px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.project-view-btn:hover {
+    background: var(--accent-color);
+    color: var(--text-primary);
+    border-color: var(--accent-color);
+}
+
+.project-view-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ซ่อน project-arrow ที่ไม่จำเป็นอีกต่อไป */
+.project-arrow {
+    display: none;
+}
+
+/* เพิ่มสไตล์สำหรับผลงานหลักที่ต้องการให้ใหญ่ขึ้น */
+.project-item.project-main {
+    grid-column: 1 / -1; 
+}
+
+/* ปรับขนาดรูปภาพของผลงานหลักให้ใหญ่ขึ้น */
+.project-item.project-main .project-image {
+    max-height: 800px; 
+    object-fit: contain;
 }
 
 .project-item {
@@ -529,34 +580,6 @@ html {
     color: inherit;
 }
 
-.project-info {
-    padding: 2rem 3rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.project-title {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.project-subtitle {
-    font-size: 1rem;
-    color: var(--text-secondary);
-}
-
-.project-arrow {
-    font-size: 2rem;
-    color: var(--accent-color);
-    transition: transform 0.3s ease;
-}
-
-.project-item:hover .project-arrow {
-    transform: translateX(10px);
-}
-
 .project-image-container {
     width: 100%;
     height: auto;
@@ -572,6 +595,18 @@ html {
 
 .project-item:hover .project-image {
     transform: scale(1.05);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    /* ในโหมดมือถือ ให้ทุกอย่างเรียงกันเป็นแถวเดียว */
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-item.project-main {
+        grid-column: auto; /* ยกเลิกการขยายเต็มความกว้างในโหมดมือถือ */
+    }
 }
 
 /* Contact Section */
